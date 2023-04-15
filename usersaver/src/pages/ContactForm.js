@@ -20,7 +20,7 @@ const ContactForm = () => {
         if (isEdit) {
             // Fetch the contact data by id from the server and set the form data
             axios
-                .get(`http://localhost/reactfirebase/Php/ReadOne.php?id=${id}`)
+                .get(`http://localhost/React3-main/Php/ReadOne.php?id=${id}`)
                 .then((res) => {
                     const { name, phone, address, email } = res.data;
                     setFormData({ name, phone, address, email });
@@ -74,14 +74,14 @@ const ContactForm = () => {
             data.append('email', formData.email);
 
             const url = isEdit
-                ? `http://localhost/reactfirebase/Php/Update.php?id=${encodeURIComponent(id)}`
-                : 'http://localhost/reactfirebase/Php/Create.php';
+                ? `http://localhost/React3-main/Php/Update.php?id=${encodeURIComponent(id)}`
+                : 'http://localhost/React3-main/Php/Create.php';
 
             axios
                 .post(url, data)
                 .then((res) => {
                     console.log("data is coming", res.data);
-                    alert("Data Inserted Sucessfully");
+                    alert("Data Inserted Successfully");
                     setFormData({name: '', phone: '', address: '', email: ''});
                     navigate('/Home');
                 })

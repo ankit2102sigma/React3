@@ -7,7 +7,7 @@ const ContactTable = () => {
     const [contacts, setContacts] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get('http://localhost/reactfirebase/Php/Read.php')
+        axios.get('http://localhost/React3-main/Php/Read.php')
             .then((res) => {
                 setContacts(res.data);
             })
@@ -21,7 +21,7 @@ const ContactTable = () => {
         const confirmed = window.confirm("Are you sure you want to delete this contact?");
 
         if (confirmed) {
-            axios.post('http://localhost/reactfirebase/Php/Delete.php', { id })
+            axios.post('http://localhost/React3-main/Php/Delete.php', { id })
                 .then((res) => {
                     console.log(res.data);
                     alert(res.data);
